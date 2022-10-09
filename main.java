@@ -1,6 +1,3 @@
-package A2;
-// product id to be handled
-
 import java.util.*;
 
 class Category {
@@ -94,8 +91,10 @@ class Admin {
         }
         System.out.println("Enter Price: ");
         float p = sc.nextFloat();
+        sc.nextLine();
         System.out.println("Enter Quantity: ");
         int q = sc.nextInt();
+        sc.nextLine();
         Product P = new Product();
         P.setPrice(p);
         P.setProdName(s);
@@ -103,6 +102,7 @@ class Admin {
         P.setCategory(categories.size() + 1);
         System.out.println("How many Specifications you want to add for this product? ");
         int x = sc.nextInt();
+        sc.nextLine();
         for (int j = 0; j < x; j++) {
             String in = sc.nextLine();
             P.addSpec(in);
@@ -141,6 +141,7 @@ class Admin {
     void addProduct() {
         System.out.println("Enter The Category ID: ");
         int n = sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i < categories.size(); i++) {
             if (i + 1 == n) {
                 Category C = categories.get(i);
@@ -154,8 +155,10 @@ class Admin {
                 }  // to check uniqueness of id
                 System.out.println("Enter Price: ");
                 float p = sc.nextFloat();
+                sc.nextLine();
                 System.out.println("Enter Quantity: ");
                 int q = sc.nextInt();
+                sc.nextLine();
                 Product P = new Product();
                 P.setPrice(p);
                 P.setProdName(s);
@@ -163,6 +166,7 @@ class Admin {
                 P.setCategory(i + 1);
                 System.out.println("How many Specifications you want to add for this product? ");
                 int x = sc.nextInt();
+                sc.nextLine();
                 for (int j = 0; j < x; j++) {
                     String in = sc.nextLine();
                     P.addSpec(in);
@@ -176,6 +180,7 @@ class Admin {
     void delProduct() {
         System.out.println("Enter category ID: ");
         int n = sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i < categories.size(); i++) {
             if (i + 1 == n) {
                 Category C = categories.get(i);
@@ -184,6 +189,7 @@ class Admin {
                     System.out.println((j + 1) + ") " + C.getProd(i).getProdName() + "\n");
                 }
                 int x = sc.nextInt();
+                sc.nextLine();
                 for (int j = 0; j < C.getProdListSize(); j++) {
                     if (j == x - 1) {
                         C.getProd(j).delete();
@@ -197,6 +203,7 @@ class Admin {
     void setDiscount() {
         System.out.println("Enter category ID: ");
         int n = sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i < categories.size(); i++) {
             if (i + 1 == n) {
                 Category C = categories.get(i);
@@ -210,10 +217,13 @@ class Admin {
                     if (j == x - 1) {
                         System.out.println("Enter Elite discount(%): ");
                         int e = sc.nextInt();
+                        sc.nextLine();
                         System.out.println("Enter Prime discount(%): ");
                         int p = sc.nextInt();
+                        sc.nextLine();
                         System.out.println("Enter Discount(%): ");
                         int d = sc.nextInt();
+                        sc.nextLine();
                         C.getProd(j).setDiscount(d);
                         C.getProd(j).setPrimeDiscount(p);
                         C.getProd(j).setEliteDiscount(e);
@@ -230,6 +240,7 @@ class Admin {
         String b=sc.nextLine();
         System.out.println("Enter Combined Price: ");
         float p = sc.nextFloat();
+        sc.nextLine();
         float p1=0,p2=0;
         int flag1=0, flag2=0;
         for(int i=0;i<categories.size();i++){
@@ -264,14 +275,17 @@ class Admin {
             System.out.println((i + 1) + ") " + categories.get(i));
         }
         int n = sc.nextInt();
+        sc.nextLine();
         Category cat = categories.get(n - 1);
         System.out.println("\n->Products: ");
         for (int i = 0; i < cat.getProdListSize(); i++) {
             System.out.println((i + 1) + ") " + cat.getProd(i) + "\n");
         }
         int x = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter Quantity: ");
         int q=sc.nextInt();
+        sc.nextLine();
         if(q>cat.getProd(x-1).getQuantity()){
             System.out.println("max quantity availabl is "+cat.getProd(x-1).getQuantity()+" which has been adde to your cart");
         }
@@ -673,6 +687,7 @@ public class main{
                         "6) Add giveaway deal\n" +
                         "7) Back\n");
                 int n = sc.nextInt();
+                sc.nextLine();
                 if (n == 1){
                     ad.addCategory();
                 }
@@ -719,6 +734,7 @@ public class main{
                     "11) Add amount to wallet\n" +
                     "12) back\n");
             int n = sc.nextInt();
+            sc.nextLine();
             if(n==1){
                 A.showProducts();
             }
@@ -753,6 +769,7 @@ public class main{
             else if(n==11){
                 System.out.println("\nEnter the amount you want add: ");
                 int x=sc.nextInt();
+                sc.nextLine();
                 C.addWallet(x);
             }
             else if(n==12){
@@ -772,6 +789,7 @@ public class main{
         e=sc.nextLine();
         System.out.println("Enter Age: ");
         a=sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter Password: ");
         p=sc.nextLine();
         Customer C = new Customer();
@@ -808,6 +826,7 @@ public class main{
                     "2) Log in\n" +
                     "3) Back");
             int n=sc.nextInt();
+            sc.nextLine();
             if(n==1){
                 signUp();
             }
@@ -834,6 +853,7 @@ public class main{
                     "5) Exit the Application\n");
             int n;
             n = sc.nextInt();
+            sc.nextLine();
             if (n == 1) {
                 admin();
             } else if (n == 2) {
